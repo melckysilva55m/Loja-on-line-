@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Binariedade e Linguagem Neutra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulsar {
+            0% {
+                color: #ff7043;
+            }
+            50% {
+                color: #f4511e;
+            }
+            100% {
+                color: #ff7043;
+            }
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: rgba(0, 0, 0, 0.5); /* Capa transparente */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQErFXF_B4TfFi3I1ja3T2bvQlkhiyPEBv8fA&usqp=CAU');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: pulsar 1s infinite;
+        }
+
+        header h2 {
+            font-size: 2.5rem;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        header .btn-primary {
+            background-color: #ff7043; /* Coral */
+            color: #fff;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header .btn-primary:hover {
+            background-color: #f4511e; /* Coral mais forte */
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Seções */
+        section {
+            margin: 60px 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #6a1b9a;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Biografia da autora */
+        .biografia {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .biografia img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 30px;
+        }
+
+        .biografia .info {
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .biografia .info h3 {
+            font-size: 2rem;
+            color: #6a1b9a;
+        }
+
+        .biografia .info p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Seção com detalhes do que será aprendido */
+        .detalhes-curso {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            text-align: left;
+            color: #333;
+            flex-wrap: wrap;
+        }
+
+        .detalhes-curso ul {
+            list-style-type: none;
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .detalhes-curso ul li {
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+
+        .detalhes-curso ul li strong {
+            color: #6a1b9a;
+        }
+
+        /* Garantias e Certificados */
+        .certificado {
+            background-color: #9c4dcc; /* Lilás */
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .certificado h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .certificado ul {
+            list-style-type: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .certificado li {
+            margin: 15px 0;
+            color: #fff;
+        }
+
+        /* Notificação de compra */
+        .notificacao {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff7043;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .notificacao.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Imagem do curso */
+        .curso-imagem {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .curso-imagem img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            header h2 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .detalhes-curso {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1>Curso Binariedade e Linguagem Neutra</h1>
+            <h2>Compreenda a importância da inclusão linguística e de gênero.</h2>
+            <p>Aprenda a utilizar a linguagem neutra e entenda o universo das identidades não-binárias, respeitando as diferentes formas de viver e se comunicar.</p>
+            <button class="btn-primary" id="ctaBtn">Garantir meu acesso por R$ 39,99</button>
+        </div>
+    </header>
+
+    <!-- O que você vai aprender -->
+    <section id="sectionLearn">
+        <div class="container">
+            <h2 class="section-title">O que você vai aprender?</h2>
+            <p class="section-description">Este curso foi desenvolvido para te ajudar a compreender e utilizar a <strong>linguagem neutra</strong>, ampliando seu conhecimento sobre identidade de gênero e inclusão. Aprenda de forma prática e acessível!</p>
+        </div>
+
+        <div class="curso-imagem">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-JEFbt6kkQJ4eUl22oeUr_KUq4Pb_LREmvQ&usqp=CAU" alt="Curso Não Binário">
+        </div>
+
+        <div class="detalhes-curso">
+            <div class="texto">
+                <ul>
+                    <li><strong>Identidades sexuais e de gênero</strong>: Entenda as diversas formas de vivenciar o gênero e a sexualidade.</li>
+                    <li><strong>Pensamento binário</strong>: Como os rótulos tradicionais de gênero afetam as relações e a comunicação.</li>
+                    <li><strong>Identidades não-binárias</strong>: O que significa não se identificar com o sistema de gênero binário.</li>
+                    <li><strong>Masculino genérico na língua portuguesa</strong>: Como a língua reflete e reforça estereótipos de gênero.</li>
+                    <li><strong>Princípios e usos da linguagem neutra</strong>: Como adotar práticas linguísticas inclusivas e respeitosas com todas as identidades.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biografia da autora -->
+    <section class="biografia">
+        <div class="container">
+            <img src="https://static-media.hotmart.com/VSnp1yAOVzorgdJOv6n6pRhoUmI=/140x140/smart/filters:format(webp):background_color(white)/hotmart/product_contents/a1082c16-458d-4ca4-9406-e7d7791bfde8/20210504_0923312.jpg?w=920" alt="Foto da autora Ianê" />
+            <div class="info">
+                <h3>Sobre a Instrutora: Ianê</h3>
+                <p>Sou instrutora de Hatha Yoga com certificação pela escola Vida de Yoga. Possuo licenciatura em Ciências Sociais e sou mestranda em Sociologia pela UFSC. Tenho paixão por estudar as questões de gênero e sexualidade e compartilhar meus conhecimentos através de cursos e práticas educativas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantias e Certificados -->
+    <section class="certificado">
+        <h2>O que você vai receber ao finalizar o curso?</h2>
+        <ul>
+            <li><strong>Conteúdo original e acessível</strong>: Aprendizado completo sobre linguagem neutra e identidades de gênero.</li>
+            <li><strong>Certificado de Conclusão</strong>: Receba um certificado oficial ao finalizar o curso.</li>
+            <li><strong>Garantia de 7 dias</strong>: Se não gostar do curso, devolvemos seu dinheiro sem perguntas.</li>
+            <li><strong>Acesso vitalício</strong>: Estude no seu tempo, em qualquer dispositivo.</li>
+        </ul>
+    </section>
+
+    <!-- Notificação de compra -->
+    <div class="notificacao" id="notificacao">
+        <p><strong>João Silva</strong> comprou o curso recentemente!</p>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Curso Binariedade e Linguagem Neutra. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Exibe o pop-up ao clicar no botão
+        document.getElementById('ctaBtn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        // Função para exibir notificações de compra com nomes comuns brasileiros
+        var nomes = [
+            "João Silva", "Maria Oliveira", "Carlos Souza", "Ana Pereira", "Luana Costa", "Pedro Santos", 
+            "Lucas Almeida", "Paula Rodrigues", "Fernando Silva", "Roberta Souza", "Rafael Gomes", "Patrícia Oliveira",
+            "Marcelo Costa", "Renata Oliveira", "Gabriel Pereira", "Sofia Lima", "Victor Santos", "Bruna Costa",
+            "Felipe Almeida", "Aline Lima", "Diego Silva", "Cássio Souza", "Elaine Gomes", "Tatiane Souza",
+            "Henrique Costa", "Isabela Rodrigues", "Leandro Pereira", "Marta Oliveira", "Gustavo Gomes", "Jéssica Costa",
+            "Eduardo Lima", "Larissa Santos", "Ricardo Pereira", "Cristiane Gomes", "Tânia Silva", "Fábio Costa",
+            "Silvana Almeida", "Valter Lima", "Juliana Gomes", "Marcos Oliveira", "Marília Souza", "Tiago Pereira", 
+            "Simone Costa", "José Lima", "Carla Oliveira", "Gisele Gomes", "Márcio Costa", "Francisco Souza", 
+        ];
+        var indice = 0;
+        setInterval(function() {
+            var notificacao = document.getElementById('notificacao');
+            notificacao.querySelector('p').innerHTML = "<strong>" + nomes[indice] + "</strong> comprou o curso recentemente!";
+            indice = (indice + 1) % nomes.length;
+            notificacao.classList.add('show');
+            setTimeout(function() {
+                notificacao.classList.remove('show');
+            }, 3000);
+        }, 4000); // Exibe notificações a cada 4 segundos
+    </script>
+
+</body>
+</html>
