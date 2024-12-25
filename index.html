@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Não Binário e Linguagem Neutra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0; /* Fundo neutro para destacar o conteúdo */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Estilo da Cabeçalho */
+        header {
+            background-color: #6a1b9a; /* Roxo vibrante */
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        header h2 {
+            font-size: 2.5rem;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        header .btn-primary {
+            background-color: #ff7043; /* Coral */
+            color: #fff;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        header .btn-primary:hover {
+            background-color: #f4511e; /* Coral mais forte */
+            transform: scale(1.05);
+        }
+
+        /* Seções */
+        section {
+            margin: 60px 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #6a1b9a;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Listagem */
+        ul {
+            list-style-type: none;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #777;
+            text-align: left;
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin: 15px 0;
+        }
+
+        ul li strong {
+            color: #6a1b9a;
+        }
+
+        /* Certificado */
+        .certificado {
+            background-color: #9c4dcc; /* Lilás */
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .certificado h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .certificado ul {
+            list-style-type: none;
+        }
+
+        .certificado li {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        /* Pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .popup-content {
+            background-color: #222;
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .popup .btn-close {
+            background-color: #ff7043;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .popup .btn-close:hover {
+            background-color: #f4511e;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #161616;
+            color: #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            header h2 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1>Curso de Não Binário e Linguagem Neutra</h1>
+            <h2>Compreenda a importância da inclusão linguística e de gênero.</h2>
+            <p>Aprenda a utilizar a linguagem neutra e entenda o universo das identidades não-binárias, respeitando as diferentes formas de viver e se comunicar.</p>
+            <button class="btn-primary" id="ctaBtn">Garantir meu acesso por R$ 39,99</button>
+        </div>
+    </header>
+
+    <!-- O que você vai aprender -->
+    <section id="sectionLearn">
+        <div class="container">
+            <h2 class="section-title">O que você vai aprender?</h2>
+            <p class="section-description">Este curso foi desenvolvido para te ajudar a compreender e utilizar a <strong>linguagem neutra</strong>, ampliando seu conhecimento sobre identidade de gênero e inclusão. Aprenda de forma prática e acessível!</p>
+            <ul>
+                <li><strong>Identidades sexuais e de gênero</strong>: Entenda as diversas formas de vivenciar o gênero e a sexualidade.</li>
+                <li><strong>Pensamento binário</strong>: Como os rótulos tradicionais de gênero afetam as relações e a comunicação.</li>
+                <li><strong>Identidades não-binárias</strong>: Conheça as nuances da identidade não-binária e suas expressões culturais.</li>
+                <li><strong>Masculino genérico na língua portuguesa</strong>: Como o uso do masculino genérico pode excluir e como fazer a transição para uma linguagem neutra.</li>
+                <li><strong>Princípios da linguagem neutra</strong>: Como adotar práticas linguísticas inclusivas e respeitosas com todas as identidades.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Garantias e Certificados -->
+    <section class="certificado">
+        <div class="container">
+            <h2>O que você vai receber ao finalizar o curso?</h2>
+            <ul>
+                <li><strong>Conteúdo original e acessível</strong>: Uma aula de 1 hora de vídeo, com conteúdo completo sobre linguagem neutra.</li>
+                <li><strong>Certificado de Conclusão</strong>: Receba um certificado oficial ao finalizar o curso.</li>
+                <li><strong>Garantia de 7 dias</strong>: Se não gostar do curso, devolvemos o seu dinheiro sem perguntas.</li>
+                <li><strong>Acesso vitalício</strong>: Estude no seu tempo, em qualquer dispositivo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Pop-up de Cadastro -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h3>Você está prestes a garantir seu acesso!</h3>
+            <p>Este curso oferece tudo o que você precisa para compreender a importância da linguagem neutra e ser um comunicador inclusivo. Vamos lá?</p>
+            <button class="btn-close" id="closeBtn">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Curso Não Binário e Linguagem Neutra. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Exibe o pop-up ao clicar no botão
+        document.getElementById('ctaBtn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        // Fecha o pop-up
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
